@@ -27,7 +27,7 @@
 
 .navLink:hover,
 .navLink:focus {
-  color: rgb(197, 118, 0);
+  color: rgb(0, 87, 0);
 }
 
 .navLink:last-child {
@@ -35,5 +35,5 @@
 }
 
 .navLinkActive {
-  color: rgb(197, 118, 0);
+  color: rgb(0, 87, 0);
 }
