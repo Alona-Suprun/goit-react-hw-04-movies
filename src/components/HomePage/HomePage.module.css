@@ -1,5 +1,5 @@
 .title {
-  color: rgb(45, 0, 168);
+  color: rgb(197, 118, 0);
 }
 .homePageList {
   display: flex;
@@ -17,6 +17,7 @@
   width: calc((100% - 3 * 30px) / 4);
   margin-right: 30px;
   margin-bottom: 30px;
+  background-color: honeydew;
 }
 .homePageCard:nth-child(4n) {
   margin-right: 0;

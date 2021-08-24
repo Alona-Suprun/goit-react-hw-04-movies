@@ -1,20 +1,34 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+import { toast } from "react-toastify";
+
 import * as moviesApi from "../../api/moviesApi";
-import s from "./HomePage.module.css";
+import Searchbar from "../Searchbar/Searchbar";
+import s from "../HomePage/HomePage.module.css";
 import img from "../../images/camera.svg";
 
-const HomePage = () => {
+const MoviesPage = () => {
+  const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    moviesApi.fetchTrendingMovies().then((movies) => setMovies(movies.results));
-  }, []);
+    if (!searchValue) {
+      return;
+    }
+    moviesApi.fetchMoviesByName(searchValue).then((movies) => {
+      if (movies.length === 0) {
+        toast(`Sorry, there is no movies of ${searchValue}!`);
+        return;
+      } else setMovies(movies.results);
+    });
+  }, [searchValue]);
 
   return (
     <>
-      <h1 className={s.title}>Trending today</h1>
+      <Searchbar onSubmit={setSearchValue} />
+
       {movies && (
         <ul className={s.homePageList}>
           {movies.map((movie) => (
@@ -46,5 +60,4 @@ const HomePage = () => {
     </>
   );
 };
-
-export default HomePage;
+export default MoviesPage;

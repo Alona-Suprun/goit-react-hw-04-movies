@@ -11,3 +11,9 @@ async function fetchMovies(url = "", config = {}) {
 export function fetchTrendingMovies() {
   return fetchMovies(`${URL}/trending/movie/day?api_key=${API_KEY}`);
 }
+
+export function fetchMoviesByName(searchValue) {
+  return fetchMovies(
+    `${URL}/search/movie?api_key=${API_KEY}&query=${searchValue}&page=1`
+  );
+}
