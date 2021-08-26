@@ -13,7 +13,7 @@ const Cast = ({ movieId }) => {
 
   return (
     <>
-      {movieCast && (
+      {movieCast ? (
         <ul className={s.actors}>
           {movieCast.map((cast) => (
             <li key={cast.id} className={s.actor}>
@@ -32,6 +32,10 @@ const Cast = ({ movieId }) => {
             </li>
           ))}
         </ul>
+      ) : (
+        <p className={s.movieDetailsCard}>
+          There is no cast information for this movie.)
+        </p>
       )}
     </>
   );
