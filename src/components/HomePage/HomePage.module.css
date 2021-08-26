@@ -1,5 +1,6 @@
 .title {
-  color: rgb(197, 118, 0);
+  color: rgba(45, 0, 168);
+  text-shadow: 20px 20px 20px rgb(255, 255, 233), 2px 2px 2px green;
 }
 .homePageList {
   display: flex;
@@ -26,7 +27,7 @@
 .homePageCard:hover,
 .homePageCard:focus {
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgb(197, 118, 0);
+  box-shadow: 0 0 30px rgb(45, 0, 168);
 }
 
 .homePageCardImage {

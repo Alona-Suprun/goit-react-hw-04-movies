@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import * as moviesApi from "../../api/moviesApi";
 import s from "./HomePage.module.css";
 import img from "../../images/camera.svg";
@@ -38,6 +39,7 @@ const HomePage = () => {
                   className={s.homePageCardImage}
                 />
                 <h2 className={s.homePageCardTitle}>{movie.title}</h2>
+                <p>{movie.release_date}</p>
               </Link>
             </li>
           ))}

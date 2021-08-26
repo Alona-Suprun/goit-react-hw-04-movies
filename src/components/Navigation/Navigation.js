@@ -4,6 +4,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import s from "./Navigation.module.css";
 import HomePage from "../HomePage/HomePage";
 import MoviesPage from "../MoviesPage/MoviesPage";
+import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage";
 
 const Navigation = () => (
   <>
@@ -28,15 +29,13 @@ const Navigation = () => (
         </NavLink>
       </li>
     </ul>
+
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route path="/movies" component={MoviesPage} />
+      <Route exact path="/movies" component={MoviesPage} />
+      <Route path="/movies/:movieId" component={MovieDetailsPage} />
     </Switch>
   </>
 );
 
-//   <Route exact path="/movies/:movieId" component={MovieDetailsPage} />
-//   <Route path="/movies/:movieId/cast" component={Cast} />
-// <Route path="/movies/:movieId/reviews" component={Reviews} />
-//   <Route component={NotFound} />
 export default Navigation;

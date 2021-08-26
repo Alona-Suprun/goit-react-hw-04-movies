@@ -4,15 +4,16 @@ import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import * as moviesApi from "../../api/moviesApi";
-import Searchbar from "../Searchbar/Searchbar";
+
 import s from "../HomePage/HomePage.module.css";
+import Searchbar from "../Searchbar/Searchbar";
 import img from "../../images/camera.svg";
 
 const MoviesPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState(null);
   const location = useLocation();
-
+  console.log(searchValue);
   useEffect(() => {
     if (!searchValue) {
       return;
@@ -28,7 +29,6 @@ const MoviesPage = () => {
   return (
     <>
       <Searchbar onSubmit={setSearchValue} />
-
       {movies && (
         <ul className={s.homePageList}>
           {movies.map((movie) => (
