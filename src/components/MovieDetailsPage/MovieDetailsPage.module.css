@@ -1,0 +1,22 @@
+.movieDetailsCard {
+  display: flex;
+  background-color: honeydew;
+  padding: 15px;
+  margin: 30px;
+  border-radius: 5px;
+}
+.text {
+  text-align: left;
+  margin-left: 20px;
+}
+.movieDetailsCardImage {
+  height: 500px;
+  border-radius: 5px;
+}
+.movieDetailsItems {
+  list-style: none;
+  text-decoration: none;
+  padding: 0px;
+  color: orange;
+  font-size: 20px;
+}

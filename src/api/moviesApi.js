@@ -17,3 +17,15 @@ export function fetchMoviesByName(searchValue) {
     `${URL}/search/movie?api_key=${API_KEY}&query=${searchValue}&page=1`
   );
 }
+
+export function fetchMoviesDetails(movieId) {
+  return fetchMovies(`${URL}/movie/${movieId}?api_key=${API_KEY}`);
+}
+
+export function fetchMovieCast(movieId) {
+  return fetchMovies(`${URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+}
+
+export function fetchMovieReviews(movieId) {
+  return fetchMovies(`${URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
+}
