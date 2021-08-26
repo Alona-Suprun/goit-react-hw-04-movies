@@ -2,7 +2,7 @@
   color: rgba(45, 0, 168);
   text-shadow: 20px 20px 20px rgb(255, 255, 233), 2px 2px 2px green;
 }
-.homePageList {
+.movieList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,7 +10,7 @@
   padding: 0px 40px 0px 40px;
 }
 
-.homePageCard {
+.movieCard {
   border-radius: 5px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(45, 0, 168, 0.397),
@@ -20,22 +20,22 @@
   margin-bottom: 30px;
   background-color: honeydew;
 }
-.homePageCard:nth-child(4n) {
+.movieCard:nth-child(4n) {
   margin-right: 0;
 }
 
-.homePageCard:hover,
-.homePageCard:focus {
+.movieCard:hover,
+.movieCard:focus {
   transform: scale(1.03);
   box-shadow: 0 0 30px rgb(45, 0, 168);
 }
 
-.homePageCardImage {
+.movieCardImage {
   border-radius: 5px;
   width: 100%;
   text-decoration: none;
 }
-.homePageCardTitle {
+.movieCardTitle {
   font-size: 16px;
   text-decoration: none;
   color: rgb(197, 118, 0);

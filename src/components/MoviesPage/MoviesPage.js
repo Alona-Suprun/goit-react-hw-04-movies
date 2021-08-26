@@ -13,7 +13,7 @@ const MoviesPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState(null);
   const location = useLocation();
-  console.log(searchValue);
+
   useEffect(() => {
     if (!searchValue) {
       return;
@@ -30,11 +30,11 @@ const MoviesPage = () => {
     <>
       <Searchbar onSubmit={setSearchValue} />
       {movies && (
-        <ul className={s.homePageList}>
+        <ul className={s.movieList}>
           {movies.map((movie) => (
-            <li className={s.homePageCard} key={movie.id}>
+            <li className={s.movieCard} key={movie.id}>
               <Link
-                className={s.homePageCardTitle}
+                className={s.movieCardTitle}
                 to={{
                   pathname: `/movies/${movie.id}`,
                   state: {
@@ -49,9 +49,9 @@ const MoviesPage = () => {
                       : `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                   }
                   alt={movie.title}
-                  className={s.homePageCardImage}
+                  className={s.movieCardImage}
                 />
-                <h2 className={s.homePageCardTitle}>{movie.title}</h2>
+                <h2 className={s.movieCardTitle}>{movie.title}</h2>
               </Link>
             </li>
           ))}

@@ -17,11 +17,11 @@ const HomePage = () => {
     <>
       <h1 className={s.title}>Trending today</h1>
       {movies && (
-        <ul className={s.homePageList}>
+        <ul className={s.movieList}>
           {movies.map((movie) => (
-            <li className={s.homePageCard} key={movie.id}>
+            <li className={s.movieCard} key={movie.id}>
               <Link
-                className={s.homePageCardTitle}
+                className={s.movieCardTitle}
                 to={{
                   pathname: `/movies/${movie.id}`,
                   state: {
@@ -36,9 +36,9 @@ const HomePage = () => {
                       : `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                   }
                   alt={movie.title}
-                  className={s.homePageCardImage}
+                  className={s.movieCardImage}
                 />
-                <h2 className={s.homePageCardTitle}>{movie.title}</h2>
+                <h2 className={s.movieCardTitle}>{movie.title}</h2>
                 <p>{movie.release_date}</p>
               </Link>
             </li>

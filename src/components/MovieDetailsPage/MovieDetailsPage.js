@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import {
   NavLink,
   useParams,
@@ -6,12 +6,19 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import * as moviesApi from "../../api/moviesApi";
 import img from "../../images/camera.svg";
 import s from "./MovieDetailsPage.module.css";
-import Cast from "../Cast/Cast";
-import Reviews from "../Reviews/Reviews";
+
+const Cast = lazy(() =>
+  import("../Cast/Cast.js" /*webpackChunkName: "cast" */)
+);
+const Reviews = lazy(() =>
+  import("../Reviews/Reviews.js" /*webpackChunkName: "eviewsr" */)
+);
 
 const MovieDetailsPage = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -68,14 +75,16 @@ const MovieDetailsPage = () => {
           </div>
         </div>
       )}
-      <Switch>
-        <Route path={`${path}/cast`}>
-          {movieDetails && <Cast movieId={movieId} />}
-        </Route>
-        <Route path={`${path}/reviews`}>
-          {movieDetails && <Reviews movieId={movieId} />}
-        </Route>
-      </Switch>
+      <Suspense fallback={<Loader type="Bars" />}>
+        <Switch>
+          <Route path={`${path}/cast`}>
+            {movieDetails && <Cast movieId={movieId} />}
+          </Route>
+          <Route path={`${path}/reviews`}>
+            {movieDetails && <Reviews movieId={movieId} />}
+          </Route>
+        </Switch>
+      </Suspense>
     </>
   );
 };
